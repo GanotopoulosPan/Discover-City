@@ -28,7 +28,11 @@ A Laravel-based city guide and AI trip planner for Volos, built as a 2-person un
 **Local Setup**
 To run this project locally, execute the following commands:
 
-```bash
+![Αρχική Σελίδα](screenshots/home_1.png)
+![Αρχική Σελίδα](screenshots/home_2.png)
+![Αρχική Σελίδα](screenshots/home_3.png)
+![Αρχική Σελίδα](screenshots/home_4.png)
+
 git clone [https://github.com/UsernameSou/Discover-City.git](https://github.com/UsernameSou/Discover-City.git)
 cd Discover-City
 composer install
