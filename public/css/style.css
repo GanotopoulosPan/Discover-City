@@ -1,0 +1,2413 @@
+/* ==========================================================================
+   1. ΒΑΣΙΚΑ STYLES & RESET 
+   ========================================================================== */
+/* Εφαρμόζουμε ένα απλό reset για να έχουμε πιο καθαρή βάση για το styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+/* Βασικό background και χρώμα κειμένου για όλο το site */
+body {
+    background: #f8f8f8;
+    color: #333333;
+}
+
+/* Κοινές μεταβλητές χρωμάτων για τις εσωτερικές σελίδες */
+.body-details, 
+.mybus-body {
+    --primary: #004080;
+    --secondary: #ffd700;
+    --text-main: #362d2f;
+    --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    --danger: #ff4d4d;
+    --edit: #4d94ff;
+}
+
+/* Γενικό Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #426180;
+    color: white;
+    margin-top: auto;
+}
+
+ .simple-footer {
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: -50px;
+        background: #ffffff00;
+        font-size: 0.9rem;
+        color: #e0e0e0;
+        letter-spacing: 1px;
+        
+    }
+
+/*  =========================================
+    Styles για την Index Page
+    ========================================= */
+        /* Ειδικό στυλ για το slider πληροφοριών στο index */
+        .index-page .slide-btn {
+            color: #c4c4c4;
+            text-decoration: underline;
+        }
+        /* Κοινά στυλ για τις σελίδες με φίλτρα και κατηγορίες */
+        .content-layout {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0 40px;
+            gap: 20px;
+        }
+        /* Στυλ για την sidebar με τα φίλτρα */
+        .filters-title {
+            font-size: 1.2em;
+            color: #004080;
+            margin-bottom: 15px;
+        }
+        /* Στυλ για τη φόρμα των φίλτρων */
+        .filter-form {
+            margin-top: 20px;
+        }
+        /* Διαχωρισμός των διαφορετικών ομάδων φίλτρων με ένα gap */
+        .filter-group + .filter-group {
+            margin-top: 20px;
+        }
+        /* Στυλ για τις ετικέτες των φίλτρων */
+        .filter-label {
+            font-weight: bold;
+            color: #004080;
+            display: block;
+            margin-bottom: 10px;
+        }
+        /* Στυλ για τα dropdowns των φίλτρων */
+        .filter-select {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        /* Στυλ για τις λίστες με τα checkboxes */
+        .checkbox-item {
+            display: block;
+            margin-bottom: 8px;
+        }
+        /* Στυλ για τα checkboxes και τις ετικέτες τους */
+        .filter-group-bordered {
+            border-top: 1px solid #ddd;
+            padding-top: 15px;
+        }
+        /* Στυλ για το κουμπί υποβολής των φίλτρων */
+        .filter-submit-btn {
+            width: 100%;
+            padding: 12px;
+            background: #004080;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            color: #ffd700;
+            font-weight: bold;
+            margin-top: 25px;
+            transition: 0.3s;
+        }
+        /* Εφέ hover για το κουμπί υποβολής των φίλτρων */
+        .filter-submit-btn:hover {
+            opacity: 0.9;
+        }
+        /* Στυλ για το container που περιέχει το grid με τις κάρτες των επιχειρήσεων */
+        .index-page .latest-grid-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+       /* Στυλ για το grid με τις κάρτες των επιχειρήσεων στην index page */
+        .index-page .latest-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        /* Στυλ για τις κάρτες των επιχειρήσεων στην index page */
+        .index-page .card-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Στυλ για τις εικόνες στις κάρτες των επιχειρήσεων στην index page */
+        .index-page .rating-text {
+            color: #666;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Στυλ για το container της sidebar στα δεξιά με τον καιρό και τον AI Planner */
+        .sidebar-right {
+            width: 278px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 20px;
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        /* Στυλ για το widget του καιρού */
+        .weather-widget-container {
+            background-color: #466785;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(0, 64, 128, 0.15);
+            padding: 10px;
+            box-sizing: border-box;
+            width: 100%;
+        }
+        /* Στυλ για το widget του AI Planner */
+        .ai-planner-container {
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0, 64, 128, 0.1);
+            padding: 20px;
+            box-sizing: border-box;
+            width: 100%;
+            border: 1px solid #eee;
+        }
+        /* Στυλ για τον τίτλο του AI Planner */
+        .ai-planner-title {
+            color: #004080;
+            font-size: 1.1rem;
+            margin-top: 0;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            justify-content: center;
+        }
+        /* Στυλ για την περιγραφή του AI Planner */
+        .ai-planner-desc {
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+        /* Στυλ για το textarea του AI Planner */
+        .ai-planner-textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            font-size: 0.9rem;
+            resize: none;
+            outline: none;
+            font-family: inherit;
+            box-sizing: border-box;
+        }
+        /* Στυλ για το κουμπί υποβολής του AI Planner */
+        .ai-planner-btn {
+            width: 100%;
+            padding: 12px;
+            background: #004080;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            color: #ffd700;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: 0.3s;
+            font-size: 0.9rem;
+        }
+        /* Εφέ hover για το κουμπί υποβολής του AI Planner */
+        .ai-planner-btn:hover {
+            opacity: 0.9;
+        }
+        /* Στυλ για το container του χάρτη στην index page */
+        .map-container {
+            max-width: 65%;
+            margin: 0 auto;
+        }
+        /* Στυλ για τον χάρτη Leaflet στην index page */
+        #map {
+            height: 600px;
+            width: 100%;
+        }
+        /* Στυλ για την ενότητα "Είδατε πρόσφατα" στην index page */
+        .recently-viewed-section {
+            padding: 60px 0;
+            background: #f9f9f9;
+            border-top: 1px solid #eee;
+        }
+        /* Στυλ για το container που περιέχει τον τίτλο 
+        και το grid με τις κάρτες των πρόσφατα προβεβλημένων επιχειρήσεων */
+        .recently-viewed-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* Στυλ για τον τίτλο της ενότητας "Είδατε πρόσφατα" */
+        .recently-viewed-title {
+            text-align: center;
+            color: #004080;
+            margin-bottom: 40px;
+        }
+        /* Στυλ για το wrapper του grid με τις κάρτες των πρόσφατα προβεβλημένων επιχειρήσεων,
+         ώστε να είναι κεντραρισμένο */
+        .recently-viewed-grid-wrapper {
+            display: flex;
+            justify-content: center;
+        }
+        /* Στυλ για το grid με τις κάρτες των πρόσφατα προβεβλημένων επιχειρήσεων, 
+        ώστε να έχει 3 στήλες και να είναι responsive */
+        .recently-viewed-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        
+        /* Μικρό animation για να ανοίγει όμορφα το modal */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+
+/* ==========================================================================
+   2. NAVBAR & ΛΕΙΤΟΥΡΓΙΕΣ HEADER
+   ========================================================================== */
+/* Στυλ για το header και τη navbar */
+.sec-header {
+    height: 80px;
+    color: #ffffff;
+    background-color: #426180;
+}
+/* Στυλ για τη navbar μέσα στο header, με διαφανές background και χωρίς border */
+.sec-header .navbar,
+.sec-header .navbar.scrolled {
+    background-color: #426180;
+    border-bottom: none;
+}
+/* Στυλ για τη navbar, με fixed θέση, πλήρες πλάτος και εφέ κατά το scroll */
+.navbar {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    padding: 15px 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    transition: background 0.4s ease, padding 0.4s ease;
+}
+/* Όταν η navbar έχει την κλάση "scrolled" (δηλαδή όταν ο χρήστης έχει κάνει scroll), 
+αλλάζουμε το background και αφαιρούμε το border */
+.navbar.scrolled {
+    background: #426180;
+    border-bottom: none;
+}
+/* Στυλ για το λογότυπο και τον τίτλο στην navbar */
+#title {
+    color: #fff;
+    font-size: 2em;
+    font-weight: 600;
+}
+/* Το "City" σε διαφορετικό χρώμα για να ξεχωρίζει */
+#title span { 
+    color: #ffd700; 
+}
+/* Στυλ για την περιοχή του λογότυπου και των συνδέσμων στην navbar,
+ με flexbox για να τα τοποθετεί σωστά */
+.logo-area { 
+    flex: 1; 
+    display: flex; 
+}
+/* Στυλ για την περιοχή των συνδέσμων πλοήγησης στη navbar, 
+με flexbox για να τα τοποθετεί στα δεξιά */
+.auth-section { 
+    flex: 1; 
+    display: flex; 
+    justify-content: flex-end; 
+    align-items: center; 
+    gap: 15px; 
+}
+/* Στυλ για τη λίστα με τους συνδέσμους πλοήγησης στη navbar,
+ με flexbox για να τα τοποθετεί οριζόντια και να έχει κενό μεταξύ τους */
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+/* Στυλ για τους συνδέσμους πλοήγησης στη navbar, με λευκό χρώμα,
+ χωρίς υπογράμμιση και με μεγαλύτερο μέγεθος γραμματοσειράς */
+.nav-links a { 
+    color: #fff; 
+    text-decoration: none; 
+    font-size: 1.2em; 
+}
+/* Εφέ hover για τους συνδέσμους πλοήγησης στη navbar,
+ με αλλαγή χρώματος σε χρυσό και εφέ για να φαίνεται πιο ζωντανό */
+.nav-links a:hover, 
+.nav-links a.active { 
+    color: #ffd700; 
+}
+
+/* Dropdown επιλογής πόλης */
+.city-dropdown { 
+    position: relative; 
+}
+/* Στυλ για το κουμπί που ανοίγει το dropdown επιλογής πόλης,
+ με διαφανές background, χρυσό περίγραμμα και εφέ hover */
+.city-btn {
+    background: transparent;
+    border: 1px solid #ffd700;
+    color: #ffd700;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+/* Εφέ hover για το κουμπί επιλογής πόλης,
+ με αλλαγή background σε χρυσό και χρώμα κειμένου σε σκούρο μπλε για καλύτερη αντίθεση */
+.city-btn:hover { 
+    background: #ffd700; 
+    color: #004080; 
+}
+/* Στυλ για το περιεχόμενο του dropdown επιλογής πόλης,
+ με λευκό background, στρογγυλεμένες γωνίες και σκιά για να ξεχωρίζει από το υπόλοιπο περιεχόμενο */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 35px;
+    background: white;
+    min-width: 120px;
+    border-radius: 4px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 100;
+}
+/* Όταν το dropdown έχει την κλάση "show", το εμφανίζουμε */
+.dropdown-content.show { 
+    display: block; 
+}
+/* Στυλ για τους συνδέσμους μέσα στο dropdown επιλογής πόλης*/
+.dropdown-content a {
+    display: block;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: #004080;
+}
+/* Εφέ hover για τους συνδέσμους μέσα στο dropdown επιλογής πόλης,
+ με αλλαγή background σε χρυσό και χρώμα κειμένου σε σκούρο μπλε για καλύτερη αντίθεση */
+.dropdown-content a:hover { 
+    background: #ffd700; 
+}
+
+/* Κουμπιά Login / Register */
+.auth-buttons button, 
+.auth-buttons a {
+    padding: 8px 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    text-decoration: none;
+}
+/* Στυλ για το κουμπί Login, με λευκό background και μπλε χρώμα κειμένου */
+.login-btn { 
+    background: #fff; 
+    color: #004080; 
+}
+
+.signup-btn { 
+    background: #ffd700; 
+    color: #004080; 
+}
+
+/* Μπάρα Αναζήτησης */
+.search {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 5px 10px;
+    transition: 0.3s;
+}
+/*Μπάρα αναζήτησης */
+.search:focus-within {
+    border-color: #004080;
+    box-shadow: 0 0 5px rgba(0, 64, 128, 0.2);
+}
+
+.search input { 
+    border: none; 
+    outline: none; 
+    padding: 8px; 
+    flex: 1;
+    font-size: 0.95rem; 
+}
+
+.search button { 
+    background: none; 
+    border: none; 
+    cursor: pointer; 
+    padding: 5px; 
+    transition: transform 0.2s; 
+}
+
+.search button:hover { 
+    transform: scale(1.1); 
+}
+/* Στυλ για το εικονίδιο της αναζήτησης, με μπλε χρώμα και μέγεθος 20px */
+.search svg { 
+    width: 20px; 
+    height: 20px; 
+    fill: #004080; 
+}
+
+/* .nav-search { 
+    position: relative; 
+}
+
+.nav-search input { 
+    padding: 8px 35px 8px 12px; 
+    border: none; 
+    border-radius: 20px; 
+    outline: none; 
+}
+
+.nav-search button { 
+    position: absolute; 
+    right: 6px; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    background: none; 
+    border: none; 
+    cursor: pointer; 
+}
+
+.nav-search svg { 
+    height: 18px; 
+    fill: #004080; 
+} */
+
+/* Εικονίδιο Χρήστη & Dropdown */
+.user-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.user-icon:hover { 
+    transform: scale(1.05); 
+    background: #ffd700; 
+}
+/* Στυλ για το εικονίδιο του χρήστη, με μπλε χρώμα και μέγεθος 20px */
+.user-icon svg { 
+    height: 20px; 
+    fill: #004080; 
+}
+/* Στυλ για το dropdown με τις επιλογές του χρήστη (προφίλ, αγαπημένα, κλπ)*/
+.user-dropdown {
+    display: none;
+    position: absolute;
+    top: 65px;
+    right: 35px;
+    background: white;
+    border-radius: 6px;
+    border: 1px solid #eee;
+}
+/* Στυλ για τους συνδέσμους μέσα στο dropdown του χρήστη*/
+.user-dropdown a { 
+    display: block; 
+    padding: 10px 15px; 
+    text-decoration: none; 
+    color: #333; 
+    transition: background 0.2s; 
+}
+
+.user-dropdown a:hover { 
+    background: #f1f1f1; 
+    color: #004080; 
+}
+
+.user-dropdown a.logout { 
+    border-top: 1px solid #9b9999; 
+    color: #d63031; 
+}
+
+.user-dropdown a.logout:hover { 
+    background: #fff5f5; 
+}
+/* Το logout γίνεται με φόρμα POST, 
+οπότε κρύβουμε τη φόρμα και κάνουμε submit όταν ο χρήστης πατήσει το "Logout" στο dropdown */
+#logout-form { 
+    display: none; 
+}
+
+
+/* ==========================================================================
+   3. HERO BANNER & PARALLAX EFFECT 
+   ========================================================================== */
+
+.main-header {
+    height: 600px;
+    color: #fff;
+}
+/* Το background του header, με fixed θέση για το parallax effect και z-index -1 για να είναι πίσω από το περιεχόμενο */
+.header-bg {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 600px;
+    z-index: -1; /* Το κρατάει πίσω από το υπόλοιπο περιεχόμενο (Parallax) */
+}
+/* Η εικόνα του background, με object-fit: cover για να καλύπτει όλο το χώρο χωρίς να παραμορφώνεται */
+.header-bg img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+}
+/* Ένα ημιδιαφανές overlay πάνω από το background για να κάνει το κείμενο πιο ευδιάκριτο */
+.header-bg .overlay { 
+    position: absolute; 
+    top: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: rgba(0, 0, 0, 0.4); 
+}
+
+.header-content { 
+    height: 100%; 
+    display: flex; 
+}
+/* Το container με το κείμενο πάνω στο hero banner, με flexbox για να το κεντράρει κάθετα και οριζόντια */
+.hero-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 50px;
+}
+
+.hero-text.index-hero { 
+    justify-content: flex-end; 
+    padding-bottom: 40px; 
+}
+
+.hero-text h1 { 
+    font-size: 3.5em; 
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6); 
+    margin-bottom: 10px; 
+}
+
+.hero-text p { 
+    font-size: 1.5em; 
+}
+
+/* Το slider πληροφοριών στο index */
+.hero-info-slider { 
+    display: flex; 
+    margin-top: 30px; 
+    max-width: 800px; 
+}
+/* Στυλ για τα βελάκια του slider*/
+.slider-arrow { 
+    background: none; 
+    border: none; 
+    color: #ffffff; 
+    font-size: 2.5em; 
+    cursor: pointer; 
+    transition: 0.2s; 
+}
+
+.slider-arrow:hover { 
+    transform: scale(1.2); 
+    color: #a9b913; 
+}
+/* Στυλ για το container που περιέχει το κείμενο του slider, με ημιδιαφανές background και εφέ blur για να ξεχωρίζει από το background */
+.slider-content {
+    text-align: center;
+    background: rgba(45, 101, 141, 0.4);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    margin: 0 20px;
+    height: 170px;
+    display: flex;
+    align-items: center;
+}
+/* Στυλ για κάθε "slide" του slider, με animation για να εμφανίζεται ομαλά όταν αλλάζει */
+.slide { 
+    display: none; 
+    animation: fadeIn 0.5s ease-in-out; 
+}
+
+.slide.active { 
+    display: block; 
+}
+
+.slide h3 { 
+    font-size: 1.5em; 
+    color: #ffd700; 
+    margin-bottom: 10px; 
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); 
+}
+
+.slide p { 
+    font-size: 1.1em; 
+    padding: 0 40px; 
+    line-height: 1.5; 
+    color: #fff; 
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); 
+}
+/* Animation για το fade-in effect των slides */
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(5px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+.slider-dots { 
+    margin-top: 15px; 
+}
+
+.dot { 
+    cursor: pointer; 
+    height: 12px; 
+    width: 12px; 
+    margin: 0 5px; 
+    background-color: rgba(255, 255, 255, 0.5); 
+    border-radius: 50%; 
+    display: inline-block; 
+    transition: 0.3s; 
+}
+
+.dot.active, 
+.dot:hover { 
+    background-color: #ffd700; 
+    transform: scale(1.2); 
+}
+
+
+/* ==========================================================================
+   4. INDEX PAGE STYLES
+   ========================================================================== */
+/* Κοινά στυλ για τις ενότητες Latest Places, Popular Places, Map και Filters στην index page */
+.latest-places, 
+.popular-places, 
+.map-section, 
+.filters-section, 
+.content-container {
+    position: relative;
+    z-index: 2;
+    background: #f8f8f8;
+}
+
+.latest-places { 
+    padding: 30px 20px 50px; 
+}
+
+.latest-places h2 { 
+    font-size: 2em; 
+    color: #004080; 
+    margin-top: 30px; 
+    margin-bottom: 20px; 
+}
+
+/* Το badge "ΝΕΟ" */
+.new-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #ecdc28;
+    color: #333;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.latest-card {
+    width: 280px;
+    background: #f1f1f1;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.latest-card:hover { 
+    transform: scale(1.05); 
+}
+
+.latest-card img { 
+    width: 100%; 
+    height: 200px; 
+    object-fit: cover; 
+}
+
+.latest-card h3 { 
+    margin: 10px; 
+    text-align: center; 
+    color: #004080; 
+}
+
+.latest-card p { 
+    margin: 0 10px 15px; 
+    font-size: 0.9em; 
+    color: #333; 
+}
+
+.stars { 
+    color: #ffd700; 
+}
+
+/* Χάρτης */
+.map-section { 
+    text-align: center; 
+    padding: 40px 20px; 
+}
+
+#map { 
+    border-radius: 15px; 
+}
+/* Στυλ για τα popups του Leaflet, με λευκό background, στρογγυλεμένες γωνίες και εφέ σκιάς για να ξεχωρίζουν από το χάρτη */
+.leaflet-popup-content-wrapper { 
+    border-radius: 8px; 
+    padding: 5px; 
+}
+
+.leaflet-popup-tip { 
+    background: white; 
+}
+/* Στυλ για την ενότητα "Είδατε πρόσφατα"*/
+.recently_viewed { 
+    background: #fff; 
+    padding: 50px 20px; 
+    text-align: center; 
+}
+
+.recently_viewed h2 { 
+    font-size: 2em; 
+    color: #004080; 
+    margin-bottom: 20px; 
+}
+
+.recently-viewed-grid { 
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 20px; 
+}
+
+.recently-viewed-card {
+    width: 250px;
+    background: #f1f1f1;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.recently-viewed-card:hover { 
+    transform: scale(1.05); 
+}
+
+.recently-viewed-card img { 
+    width: 100%; 
+    height: 170px; 
+    object-fit: cover; 
+}
+
+.recently-viewed-card h3 { 
+    margin: 10px; 
+    font-size: 1.1em; 
+    color: #004080; 
+}
+
+.recently-viewed-card p { 
+    margin: 0 10px 15px; 
+    font-size: 0.9em; 
+    color: #333; 
+    text-align: left; 
+}
+
+
+/* ==========================================================================
+   5. ΚΑΤΗΓΟΡΙΕΣ (Sights, Food, Stay, Activities) & ΦΙΛΤΡΑ
+   ========================================================================== */
+/* Κοινά στυλ για τις σελίδες κατηγοριών (Sights, Food, Stay, Activities) και τη σελίδα με τα φίλτρα */
+.main-layout {
+    background: #f8f8f8;
+    display: flex;
+    margin: 20px auto;
+    padding: 0 50px;
+}
+
+.filters-section {
+    min-width: 260px;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin-bottom: 100px;
+}
+
+.filters-section h2 { 
+    color: #004080; 
+    margin-bottom: 20px; 
+    font-size: 1.3em; 
+}
+/* Διαχωρισμός των διαφορετικών ομάδων φίλτρων με ένα gap */
+.filter-group-primary { 
+    margin-bottom: 20px; 
+}
+/* Στυλ για τις ετικέτες των φίλτρων, με έντονο μπλε χρώμα για να ξεχωρίζουν */
+.filter-label-blue { 
+    font-weight: bold; 
+    color: #004080; 
+    display: block; 
+    margin-bottom: 10px; 
+}
+/* Στυλ για τις ετικέτες των φίλτρων, με έντονο γκρι χρώμα για να ξεχωρίζουν */
+.filter-label-dark { 
+    font-weight: bold; 
+    display: block; 
+    margin-bottom: 10px; 
+    color: #333; 
+}
+/* Διαχωρισμός των διαφορετικών ομάδων φίλτρων με ένα gap και μια γραμμή */
+.filter-group-divider { 
+    margin-top: 25px; 
+    border-top: 1px solid #ddd; 
+    padding-top: 15px; 
+}
+
+.checkbox-list { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 10px; 
+    margin-top: 5px; 
+}   
+
+.checkbox-list label { 
+    font-size: 0.95em; 
+    cursor: pointer; 
+    display: flex; 
+    align-items: center; 
+    gap: 8px; 
+    color: #444; 
+}
+
+.checkbox-list input[type="checkbox"] { 
+    width: 18px; 
+    height: 18px; 
+    cursor: pointer; 
+}
+
+.checkbox-item { 
+    display: block; 
+    margin-bottom: 8px; 
+}
+
+.btn-apply { 
+    width: 100%; 
+    padding: 12px; 
+    background: #004080; 
+    color: #ffd700; 
+    border: none; 
+    border-radius: 8px; 
+    font-weight: bold; 
+    cursor: pointer; 
+    margin-top: 20px; 
+}
+
+.btn-clear { 
+    display: block; 
+    text-align: center; 
+    width: 100%; 
+    padding: 10px; 
+    background: #eee; 
+    color: #333; 
+    text-decoration: none; 
+    border-radius: 8px; 
+    margin-top: 10px; 
+    font-size: 0.9em; 
+}
+
+/* Grid Καρτών στις κατηγορίες */
+.content-container { 
+    padding: 20px; 
+    flex: 1; 
+}
+
+.places-grid {
+    display: block;
+    width: 100%;
+}
+
+.latest-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(280px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 10px auto 50px 235px;
+}
+
+.latest-grid.is-index {
+    margin: 10px auto 50px auto;
+}
+
+
+.place-card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.place-card:hover { 
+    transform: translateY(-5px); 
+}
+
+.place-card img { 
+    width: 100%; 
+    height: 180px; 
+    object-fit: cover; 
+}
+
+.place-card h3 { 
+    font-size: 1.2em; 
+    color: #004080; 
+    margin-bottom: 5px; 
+}
+
+.place-card p { 
+    font-size: 0.9em; 
+    color: #666; 
+    line-height: 1.4; 
+}
+
+.card-content { 
+    padding: 15px; 
+}
+
+/* Κουμπί Αγαπημένων στις κάρτες */
+.fav-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 35px;
+    height: 35px;
+    background: white;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 10;
+    transition: 0.2s;
+}
+
+.fav-btn svg { 
+    width: 20px; 
+    fill: #ccc; 
+    transition: 0.25s; 
+    pointer-events: none; 
+}
+
+.fav-btn.active svg { 
+    fill: #ff4757; 
+    transform: scale(1.2); 
+}
+
+.fav-btn:active svg { 
+    transform: scale(1.4); 
+}
+
+/* Κάνει ολόκληρη την κάρτα clickable, όχι μόνο το κείμενο ή την εικόνα */
+.latest-card .business-card-link { 
+    text-decoration: none !important; 
+    color: inherit !important; 
+    display: block !important; 
+}
+/* Στυλ για την εικόνα μέσα στην κάρτα*/
+.latest-card .business-card-link img.business-img { 
+    height: 200px !important; 
+    width: 100% !important; 
+    object-fit: cover !important; 
+    display: block !important; 
+}
+
+.stars-container { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 4px; 
+    margin: 10px 0; 
+    position: relative; 
+}
+/* Στυλ για το κείμενο με την αξιολόγηση (π.χ. "4.5") κάτω από τα αστέρια */
+.rating-text { 
+    color: #666; 
+    font-size: 0.85rem; 
+    font-weight: 500; 
+}
+/* Στυλ για το κείμενο με τον αριθμό των αξιολογήσεων (π.χ. "5 αξιολογήσεις") */
+.rating-count { 
+    color: #999; 
+    font-weight: 400; 
+}
+
+.hidden { 
+    display: none !important; 
+}
+
+
+/* ==========================================================================
+   6. DETAILS PAGE (Σελίδες μεμονωμένης επιχείρησης / αξιοθέατου)
+   ========================================================================== */
+.body-details {
+    font-family: 'Poppins', sans-serif;
+    background: #728fa5;
+    color: var(--text-main);
+    margin: 0;
+    padding: 40px 20px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info-box { 
+    background: #c9c9c9; 
+    backdrop-filter: blur(15px); 
+    padding: 40px; 
+    border-radius: 20px; 
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    max-width: 900px; 
+    width: 100%;
+}
+
+.info-box h1 { 
+    color: var(--primary); 
+    margin-bottom: 10px; 
+    margin-top: 0; 
+}
+
+.info-box h3 { 
+    color: var(--primary); 
+    border-left: 4px solid var(--secondary); 
+    padding-left: 15px; 
+    margin-top: 30px; 
+}
+
+.category-text { 
+    color: var(--primary); 
+    font-weight: 600; 
+    text-transform: uppercase; 
+}
+
+.contact-info p { 
+    margin: 8px 0; 
+    font-size: 16px; 
+}
+
+.business-description { 
+    line-height: 1.6; 
+    white-space: pre-line; 
+}
+
+.header-container { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: flex-start; 
+    flex-wrap: wrap; 
+    gap: 30px;
+}
+
+.header-text { 
+    flex: 1; 
+    min-width: 300px; 
+}
+
+.header-text p { 
+    font-size: 1.1em; 
+}
+
+.header-image { 
+    flex-shrink: 0; 
+    width: 400px; 
+    height: 250px; 
+    overflow: hidden; 
+    border-radius: 12px; 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15); 
+}
+
+.header-image img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover;
+    border: 5px solid rgba(255, 255, 255, 0.4);
+}
+
+.photo-gallery { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+    gap: 15px; 
+    margin-top: 20px; 
+}
+
+.photo-gallery img { 
+    width: 100%; 
+    height: 150px; 
+    object-fit: cover; 
+    border-radius: 12px; 
+    transition: transform 0.3s; 
+    cursor: pointer; 
+}
+
+.photo-gallery img:hover { 
+    transform: scale(1.05); 
+}
+
+/* Κουμπιά */
+.back-btn, 
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    text-decoration: none;
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.back-btn { 
+    padding: 10px; 
+    background: #bdbdbd; 
+    border-radius: 8px; 
+    transition: 0.3s; 
+    border: none; 
+    cursor: pointer; 
+}
+
+.back-btn:hover { 
+    background: #acaaaa; 
+}
+
+.back-link i { 
+    margin-right: 10px; 
+}
+
+.arrow-left { 
+    width: 12px; 
+    height: 12px; 
+    border-left: 3px solid #004080; 
+    border-bottom: 3px solid #004080; 
+    transform: rotate(45deg); 
+}
+
+/* Αξιολογήσεις */
+.review-textarea { 
+    width: 100%; 
+    border-radius: 10px; 
+    padding: 15px; 
+}
+
+.comment-btn { 
+    display: inline-block; 
+    margin-top: 10px; 
+    margin-bottom: 20px; 
+    padding: 10px 20px; 
+    background: #bdbdbd; 
+    color: #000000; 
+    text-decoration: none; 
+    border-radius: 8px; 
+    transition: 0.3s; 
+    border: none; 
+    cursor: pointer; 
+}
+
+.star-rating { 
+    display: flex; 
+    flex-direction: row-reverse; 
+    justify-content: flex-end; 
+    margin-bottom: 10px; 
+}
+
+.star-rating input { 
+    display: none; 
+}
+
+.star-rating label { 
+    font-size: 35px; 
+    color: #ececec; 
+    cursor: pointer; 
+    transition: 0.2s; 
+}
+/* 1. Κρύβουμε τα διπλά κουμπιά "Previous / Next" */
+    .d-sm-none {
+        display: none !important;
+    }
+
+    /* 2. Κεντράρουμε τα νουμεράκια */
+    .d-none.d-sm-flex {
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    /* 3. Στυλ για το container της σελιδοποίησης */
+    ul.pagination {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        gap: 8px; 
+    }
+
+    /* 4. Στυλ για το κάθε κουμπάκι ξεχωριστά */
+    ul.pagination li.page-item .page-link {
+        display: inline-block;
+        padding: 8px 16px;
+        background-color: #ffffff;
+        color: #004080; 
+        border: 1px solid #dddddd;
+        border-radius: 10px; 
+        text-decoration: none;
+        font-weight: 600;
+        transition: 0.3s ease;
+    }
+
+    /* 5. Πώς φαίνεται το κουμπί της σελίδας που βρισκόμαστε  */
+    ul.pagination li.page-item.active .page-link {
+        background-color: #004080;
+        color: #ffffff;
+        border-color: #004080;
+    }
+
+    /* 6. Πώς φαίνεται όταν περνάει το ποντίκι από πάνω */
+    ul.pagination li.page-item .page-link:hover {
+        background-color: #004080;
+        color: white;
+    }
+
+    /* 7. Πώς φαίνονται τα ανενεργά βελάκια */
+    ul.pagination li.page-item.disabled .page-link {
+        color: #aaaaaa;
+        background-color: #f9f9f9;
+        cursor: not-allowed;
+    }
+    
+    /* Στυλ για κάθε σχόλιο ξεχωριστά */
+    .review-item {
+        background-color: #dfdfdf; 
+        border: 1px solid #ddd;   
+        border-radius: 12px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
+        transition: transform 0.2s;
+    }
+    /* Ελαφρύ zoom όταν περνάει το ποντίκι από πάνω από τα αστέρια */
+    .avg-rating-wrapper {
+        color: #ff9800;
+        font-size: 34px;
+        margin-bottom: 20px;
+    }
+    /* Στυλ για το κείμενο που δείχνει τον μέσο όρο βαθμολογίας */
+    .avg-rating-text {
+        color: var(--text-main);
+        font-size: 16px;
+    }
+    /* Περιέχει το όνομα του χρήστη και τα αστέρια της βαθμολογίας */
+    .review-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    /* Στυλ για τα αστέρια της βαθμολογίας κάθε σχολίου */
+    .review-stars {
+        color: #ff9800;
+        font-size: 20px;
+    }
+    /* Στυλ για το κείμενο του σχολίου, με σωστή διαχείριση των πολύ μεγάλων λέξεων */
+    .review-text {
+        margin: 10px 0;
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+    /* Κουμπιά για επεξεργασία και διαγραφή σχολίου */
+    .review-actions {
+        display: flex;
+        gap: 15px;
+        margin-top: 10px;
+    }
+    /* Κοινό στυλ για τα κουμπιά επεξεργασίας και διαγραφής */
+    .action-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 13px;
+        padding: 0;
+    }
+    /* Ξεχωριστό χρώμα για το κουμπί επεξεργασίας */
+    .edit-btn {
+        color: var(--primary);
+    }
+    /* Ξεχωριστό χρώμα για το κουμπί διαγραφής */
+    .delete-btn {
+        color: red;
+    }
+    /* Στυλ για τη φόρμα επεξεργασίας σχολίου που εμφανίζεται όταν ο χρήστης πατάει "Επεξεργασία" */
+    .edit-form {
+        display: none;
+        margin-top: 15px;
+    }
+    /* Στυλ για το textarea της φόρμας επεξεργασίας */
+    .edit-textarea {
+        width: 100%;
+        border-radius: 8px;
+        padding: 10px;
+        border: 1px solid #ccc;
+    }
+    /* Στυλ για το κουμπί ενημέρωσης μετά την επεξεργασία */
+    .update-btn {
+        padding: 5px 15px;
+        font-size: 12px;
+        margin-top: 5px;
+    }
+    /* Στυλ για το κουμπί ακύρωσης της επεξεργασίας */
+    .cancel-btn {
+        background: none;
+        border: none;
+        color: gray;
+        cursor: pointer;
+        font-size: 12px;
+        margin-left: 10px;
+    }
+    /* Στυλ για την ημερομηνία του σχολίου */
+    .review-date {
+        opacity: 0.6;
+        display: block;
+        margin-top: 5px;
+    }
+    /* Στυλ για το container της σελιδοποίησης, ώστε να είναι κεντραρισμένη κάτω από τα σχόλια */
+    .pagination-wrapper {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+    }
+
+.star-rating input:checked ~ label, 
+.star-rating label:hover, 
+.star-rating label:hover ~ label { 
+    color: #ffdf29; 
+}
+
+/* Custom Καρδιά*/
+.fav-section { 
+    display: flex; 
+    align-items: center; 
+    gap: 15px; 
+    background: none; 
+    border: none; 
+}
+
+.fav-btn-bd { 
+    background: none; 
+    border: none; 
+    font-size: 26px; 
+    cursor: pointer; 
+    transition: transform 0.2s ease; 
+    display: flex; 
+    align-items: center; 
+    padding: 0; 
+}
+
+.fav-btn-bd:hover { 
+    transform: scale(1.1); 
+}
+
+.fav-btn-bd .fa-regular { 
+    color: #555555; 
+}
+
+.fav-btn-bd .fa-solid { 
+    color: #ff4757; 
+}
+
+/* Dropdown Προσωπικών Λιστών */
+.add-to-list-btn { 
+    background: #004080; 
+    color: white; 
+    border: none; 
+    padding: 8px 12px; 
+    border-radius: 20px; 
+    cursor: pointer; 
+    font-size: 13px; 
+    display: flex; 
+    align-items: center; 
+    gap: 5px; 
+}
+
+.custom-lists-dropdown { 
+    position: relative; 
+    display: inline-block; 
+}
+
+.list-item-check { 
+    display: flex; 
+    align-items: center; 
+    padding: 8px; 
+    cursor: pointer; 
+    font-size: 14px; 
+    transition: 0.2s; 
+    border-radius: 4px; 
+}
+
+.list-item-check:hover { 
+    background: #f0f0f0; 
+}
+
+.list-item-check input { 
+    margin-right: 10px; 
+    width: 16px; 
+    height: 16px; 
+}
+
+.new-list-divider { 
+    border-top: 1px solid #eee; 
+    margin-top: 10px; 
+    padding-top: 10px; 
+}
+
+.new-list-input-group { 
+    display: flex; 
+    gap: 5px; 
+}
+
+.new-list-input { 
+    width: 100%; 
+    padding: 5px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    font-size: 12px; 
+}
+
+.new-list-submit-btn { 
+    background: var(--secondary); 
+    border: none; 
+    padding: 5px 10px; 
+    border-radius: 4px; 
+    cursor: pointer; 
+}
+
+
+/* ==========================================================================
+   7. ΕΝΙΑΙΟ MODAL ΓΙΑ ΦΩΤΟΓΡΑΦΙΕΣ ΣΤΙΣ ΕΠΙΧΕΙΡΗΣΕΙΣ ΚΑΙ ΑΞΙΟΘΕΑΤΑ
+   ========================================================================== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+    position: relative;
+    margin: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 90%;
+    max-width: 1000px;
+    text-align: center;
+}
+
+.mySlides { 
+    display: none; 
+    text-align: center; 
+}
+
+.mySlides img { 
+    max-height: 80vh; 
+    max-width: 100%; 
+    border-radius: 8px; 
+}
+
+.close {
+    color: white;
+    position: absolute;
+    top: -50px;
+    right: 0;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.prev, 
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    transition: 0.6s ease;
+    border-radius: 3px;
+    user-select: none;
+    text-decoration: none;
+}
+
+.next { 
+    right: -60px; 
+}
+
+.prev { 
+    left: -60px; 
+}
+
+.prev:hover, 
+.next:hover { 
+    background-color: rgba(0, 0, 0, 0.8); 
+}
+
+.numbertext { 
+    color: #f2f2f2; 
+    font-size: 12px; 
+    padding: 8px 12px; 
+    position: absolute; 
+    top: 0; 
+}
+
+
+/* ==========================================================================
+   8. ΟΙ ΕΠΙΧΕΙΡΗΣΕΙΣ ΜΟΥ 
+   ========================================================================== */
+.mybus-body {
+    background: var(--bg-gradient);
+    min-height: 100vh;
+}
+
+.mybus-container { 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 20px;
+}
+
+.mybus-header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 40px 0; 
+    margin-bottom: 40px; 
+    flex-wrap: wrap; 
+    gap: 20px; 
+}
+
+.mybus-title { 
+    color: var(--primary); 
+    font-weight: 800; 
+    font-size: 2.2rem; 
+    margin: 0; 
+}
+
+.mybus-btn-add { 
+    background: var(--primary); 
+    color: white; 
+    padding: 12px 24px; 
+    border-radius: 12px; 
+    text-decoration: none; 
+    font-weight: 600; 
+    box-shadow: 0 4px 15px rgba(0,64,128,0.3); 
+    transition: 0.3s; 
+}
+
+.mybus-btn-add:hover { 
+    transform: translateY(-2px); 
+    background: #003366; 
+}
+/* Στυλ για την κατάσταση όπου δεν υπάρχουν επιχειρήσεις, με ένα εικονίδιο και ένα μήνυμα */
+.mybus-empty-state { 
+    text-align: center; 
+    padding: 60px; 
+    background: rgba(255, 255, 255, 0.5); 
+    border-radius: 20px; 
+}
+/* Στυλ για το εικονίδιο που εμφανίζεται όταν δεν υπάρχουν επιχειρήσεις*/
+.mybus-empty-icon { 
+    font-size: 3rem; 
+    color: #999; 
+    margin-bottom: 15px; 
+}
+
+.mybus-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
+    gap: 30px; 
+}
+
+.mybus-card { 
+    background: rgba(255, 255, 255, 0.8); 
+    backdrop-filter: blur(10px); 
+    border-radius: 20px; 
+    overflow: hidden; 
+    border: 1px solid rgba(255, 255, 255, 0.3); 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+    transition: 0.3s ease; 
+    display: flex; 
+    flex-direction: column; 
+    position: relative; 
+}
+
+.mybus-card:hover { 
+    transform: translateY(-8px); 
+    box-shadow: 0 15px 35px rgba(0,64,128,0.2); 
+    cursor: pointer; 
+}
+
+.mybus-card-link { 
+    text-decoration: none; 
+    color: inherit; 
+    display: block; 
+}
+
+.mybus-card-img { 
+    width: 100%; 
+    height: 200px; 
+    object-fit: cover; 
+}
+
+.mybus-card-body { 
+    padding: 20px; 
+    flex-grow: 1; 
+}
+/* Στυλ για την ετικέτα της κατηγορίας στην κάρτα*/
+.mybus-category-tag { 
+    display: inline-block; 
+    background: var(--primary); 
+    color: white; 
+    padding: 5px 14px; 
+    border-radius: 20px; 
+    font-size: 0.7rem; 
+    margin-bottom: 12px; 
+    text-transform: uppercase; 
+}
+
+.mybus-name { 
+    font-size: 1.3rem; 
+    color: var(--primary); 
+    margin: 0 0 15px 0; 
+    font-weight: 700; 
+}
+/* Στυλ για τις πληροφορίες της επιχείρησης κάτω από το όνομα, με ένα εικονίδιο και κείμενο σε κάθε γραμμή */
+.mybus-info-row { 
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
+    font-size: 0.85rem; 
+    color: #444; 
+    margin-bottom: 10px; 
+}
+
+.mybus-info-row i { 
+    color: var(--primary); 
+    width: 16px; 
+    text-align: center; 
+}
+/* Στυλ για το footer της κάρτας, που περιέχει τα κουμπιά επεξεργασίας και διαγραφής */
+.mybus-card-footer { 
+    padding: 15px; 
+    background: rgba(0,0,0,0.02); 
+    display: flex; 
+    gap: 10px; 
+    border-top: 1px solid rgba(0,0,0,0.05); 
+    position: relative; 
+    z-index: 5; 
+}
+/* Κοινό στυλ για τα κουμπιά επεξεργασίας και διαγραφής, με διαφορετικό χρώμα για το καθένα */
+.mybus-btn { 
+    flex: 1; 
+    padding: 10px; 
+    border-radius: 8px; 
+    text-align: center; 
+    text-decoration: none; 
+    font-weight: 600; 
+    font-size: 0.85rem; 
+    transition: 0.2s; 
+    border: none; 
+    cursor: pointer; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 5px; 
+}
+
+.mybus-btn-edit { 
+    background: var(--edit); 
+    color: white; 
+}
+
+.mybus-btn-delete { 
+    background: var(--danger); 
+    color: white; 
+    flex: 0.3; 
+}
+
+.mybus-btn:hover { 
+    opacity: 0.9; 
+    transform: scale(1.03); 
+}
+
+.mybus-delete-form { 
+    display: contents; 
+}
+/* Στυλ για το alert που εμφανίζεται μετά την επιτυχή διαγραφή μιας επιχείρησης */
+.mybus-alert-success { 
+    background: #d4edda; 
+    color: #155724; 
+    padding: 15px; 
+    border-radius: 12px; 
+    margin-bottom: 25px; 
+    border: 1px solid #c3e6cb; 
+}
+
+
+/* ==========================================================================
+   9. ΑΓΑΠΗΜΕΝΑ & ΛΙΣΤΕΣ (favlist-)
+   ========================================================================== */
+.favlist-body { 
+    background: #f8f8f8; 
+    color: #333; 
+    display: flex; 
+    flex-direction: column; 
+    height: 100vh; 
+    overflow: hidden; 
+    margin: 0; 
+    padding: 0; 
+}
+
+.favlist-main-wrapper { 
+    display: flex; 
+    flex: 1; 
+    overflow: hidden; 
+}
+
+/* Το Πλαϊνό Μενού */
+.favlist-sidebar { 
+    width: 350px; 
+    background: #fff; 
+    display: flex; 
+    flex-direction: column; 
+    padding: 20px; 
+}
+
+.favlist-sidebar h3 { 
+    color: #004080; 
+    margin-bottom: 20px; 
+    padding-bottom: 10px; 
+    border-bottom: 2px solid #ffd700; 
+}
+
+.favlist-item { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 15px; 
+    margin-bottom: 5px; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    color: #555; 
+    font-weight: 500; 
+    transition: all 0.2s; 
+    position: relative; 
+}
+
+.favlist-item:hover { 
+    background: #f0f0f0; 
+}
+
+.favlist-item.active { 
+    background: #004080; 
+    color: white; 
+}
+
+.favlist-count { 
+    background: #eee; 
+    color: #333; 
+    font-size: 0.8em; 
+    padding: 2px 8px; 
+    border-radius: 10px; 
+    font-weight: bold; 
+}
+
+.favlist-item.active .favlist-count { 
+    background: #ffd700; 
+    color: #004080; 
+}
+/* Κουμπιά επεξεργασίας και διαγραφής που εμφανίζονται όταν περνάει το ποντίκι πάνω από ένα στοιχείο της λίστας */
+.favlist-actions { 
+    display: flex; 
+    align-items: center; 
+    gap: 8px; 
+}
+/* Κοινό στυλ για τα κουμπιά επεξεργασίας και διαγραφής */
+.favlist-action-btn { 
+    background: transparent; 
+    border: none; 
+    cursor: pointer; 
+    font-size: 0.9em; 
+    opacity: 0.6; 
+    transition: 0.3s; 
+    color: inherit; 
+    padding: 2px; 
+}
+
+.favlist-item:hover .favlist-action-btn { 
+    opacity: 1; 
+}
+
+.favlist-action-btn.edit:hover { 
+    color: #ffd700; 
+}
+
+.favlist-action-btn.delete:hover { 
+    color: #ff4757; 
+}
+
+.favlist-add-btn { 
+    background: transparent; 
+    color: #004080; 
+    border: 1px solid #004080; 
+    border-radius: 6px; 
+    cursor: pointer; 
+    font-weight: 600; 
+    transition: all 0.3s; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    padding: 13px 0; 
+    width: 100%; 
+    margin-top: 15px; 
+}
+
+.favlist-add-btn:hover { 
+    background: #004080; 
+    color: #fff; 
+}
+
+/* Το Κεντρικό Περιεχόμενο */
+.favlist-content { 
+    flex: 1; 
+    padding: 30px; 
+    overflow-y: auto; 
+    background: #f8f8f8; 
+    display: flex; 
+    flex-direction: column; 
+}
+
+.favlist-header h2 { 
+    color: #004080; 
+    margin-bottom: 20px; 
+    font-size: 1.8em; 
+}
+
+.favlist-grid { 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 20px; 
+    margin-bottom: 40px; 
+    justify-content: center; 
+}
+
+.favlist-card { 
+    width: 260px; 
+    background: #fff; 
+    border-radius: 8px; 
+    overflow: hidden; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+    position: relative; 
+    transition: transform 0.3s, opacity 0.3s; 
+}
+
+.favlist-card:hover { 
+    transform: translateY(-5px); 
+}
+
+.favlist-card-link { 
+    text-decoration: none; 
+    color: inherit; 
+    display: block; 
+}
+
+.favlist-card-img { 
+    width: 100%; 
+    height: 200px; 
+    object-fit: cover; 
+}
+
+.favlist-card-content { 
+    padding: 15px; 
+}
+
+.favlist-card h3 { 
+    font-size: 1.1em; 
+    color: #004080; 
+    margin-bottom: 5px; 
+}
+
+.favlist-stars { 
+    color: #ffd700; 
+    font-size: 0.9em; 
+}
+
+.favlist-rating-text { 
+    color: #666; 
+    font-size: 0.8em; 
+}
+
+.favlist-category-text { 
+    color: #666; 
+    font-size: 0.9em; 
+    margin-top: 5px; 
+}
+
+.favlist-remove-btn { 
+    position: absolute; 
+    top: 10px; 
+    right: 10px; 
+    background: white; 
+    color: #d63031; 
+    border: none; 
+    border-radius: 50%; 
+    width: 30px; 
+    height: 30px; 
+    cursor: pointer; 
+    font-weight: bold; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); 
+    z-index: 5; 
+}
+
+.favlist-remove-btn:hover { 
+    background: #d63031; 
+    color: white; 
+}
+
+.favlist-empty-msg { 
+    text-align: center; 
+    width: 100%; 
+    color: #777; 
+    margin-top: 20px; 
+}
+
+
+/* ==========================================================================
+    10. ΣΤΥΛ ΕΙΔΙΚΑ ΓΙΑ ΤΗ ΦΟΡΜΑ ΕΠΙΧΕΙΡΗΣΗΣ 
+    ========================================================================== */
+        
+        .bform-body {
+            font-family: 'Poppins', sans-serif;
+            padding: 40px 20px;
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #728fa5; 
+            flex-direction: column;
+        }
+        
+        .bform-container {
+            width: 100%;
+            max-width: 700px;
+            padding: 45px;
+            border-radius: 20px;
+            background-color: #c9c9c9; 
+            box-shadow: 0 15px 35px rgba(0, 64, 128, 0.15);
+        }
+
+        .bform-title {
+            text-align: center;
+            color: var(--primary); 
+            font-weight: 700;
+            font-size: 28px;
+            margin-top: 0;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .bform-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--secondary); 
+            margin: 12px auto 0;
+            border-radius: 2px;
+        }
+
+        .bform-group { 
+            margin-bottom: 25px; 
+        }
+
+        .bform-main-category {
+            background: linear-gradient(to right, rgba(0, 64, 128, 0.03), transparent);
+            padding: 25px;
+            border-left: 1px solid var(--secondary); 
+            border-radius: 8px;
+            margin-bottom: 35px;
+        }
+
+        
+        .bform-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--primary);
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        .bform-input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background-color: #d8d8d8;
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            color: var(--text-main);
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .bform-input::placeholder { color: #a4b0be; }
+        .bform-textarea { resize: none; }
+
+        .bform-input:focus {
+            background-color: #ffffff;
+            outline: none;
+        }
+
+        .bform-checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .bform-checkbox-label {
+            font-weight: 400;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 12px;
+            background-color: #c9ccce;
+            border-radius: 8px;
+            border: 1px solid transparent;
+            transition: all 0.2s;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .bform-checkbox-label:hover {
+            background-color: #D9D7D7;
+            border-color: #004080; /* var(--primary) */
+        }
+
+        .bform-checkbox {
+            margin-right: 12px;
+            width: 18px;
+            height: 18px;
+            accent-color: #004080; /* var(--primary) */
+            cursor: pointer;
+        }
+
+        .bform-file-upload {
+            border: 2px dashed #004080; /* var(--primary) */
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px;
+            background-color: rgba(0, 64, 128, 0.02);
+            transition: background-color 0.3s;
+        }
+
+        .bform-file-upload:hover { 
+            background-color: #D9D7D7; 
+        }
+
+        .bform-file-input {
+            display: block;
+            width: 100%;
+            margin-top: 5px;
+            font-size: 13px;
+            border: none;
+            background: transparent;
+            padding: 0;
+            box-shadow: none;
+        }
+
+        .bform-submit-btn {
+            width: 100%;
+            padding: 16px;
+            background-color: #728fa5;
+            color: #ffd700; /* var(--secondary) */
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 64, 128, 0.2);
+            transition: all 0.3s ease;
+            margin-top: 15px;
+        }
+
+        .bform-submit-btn:hover {
+            background-color: #627b8f;
+            color: #004080; /* var(--primary) */
+            transform: translateY(-2px);
+        }
+
+        .bform-submit-btn:active { 
+            transform: translateY(0); 
+        }
+
+        .bform-back-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background: #bdbdbd;
+            color: #000000;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+            width: fit-content;
+        }
+
+        .bform-back-btn:hover { 
+            background: #acaaaa; 
+            color: #004080; 
+        }
+
+        .bform-arrow-left {
+            width: 12px;
+            height: 12px;
+            border-left: 3px solid #004080; 
+            border-bottom: 3px solid #004080; 
+            transform: rotate(45deg); 
+            display: inline-block;
+        }
+
+        .bform-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .bform-dynamic-section { 
+            display: none; 
+        }
+
+        .bform-common-bottom { 
+            display: none; 
+        }
+
+        .bform-errors-box {
+            background: #ffcccc; 
+            color: #cc0000; 
+            padding: 15px; 
+            border-radius: 8px; 
+            margin-bottom: 20px;
+        }
+        
+        .bform-errors-list {
+            margin: 0; 
+            padding-left: 20px;
+        }
+
+        .bform-char-count {
+            text-align: right; 
+            font-size: 12px; 
+            color: #880505;
+            margin-top: 5px;
+        }
+
+        /* Styles για το Preview των Εικόνων */
+        .bform-profile-preview-box {
+            margin-top: 15px; 
+            display: flex; 
+            justify-content: center;
+        }
+
+        .bform-img-wrapper {
+            position: relative; 
+            display: inline-block;
+        }
+
+        .bform-preview-img-large {
+            width: 120px; 
+            height: 120px; 
+            object-fit: cover; 
+            border-radius: 8px; 
+            border: 2px solid  var(--primary);  
+        }
+
+        .bform-gallery-preview-box {
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 10px; 
+            margin-top: 15px; 
+            justify-content: center;
+        }
+
+        .bform-preview-img-small {
+            width: 80px; 
+            height: 80px; 
+            object-fit: cover; 
+            border-radius: 8px; 
+            border: 1px solid #ccc;
+        }
+
+        .bform-remove-img-btn-large {
+            position: absolute; 
+            top: -8px; 
+            right: -8px; 
+            background: #e74c3c; 
+            color: white; 
+            border: none; 
+            border-radius: 50%; 
+            cursor: pointer; 
+            width: 24px; 
+            height: 24px; 
+            font-weight: bold; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .bform-remove-img-btn-small {
+            position: absolute; 
+            top: -6px; 
+            right: -6px; 
+            background: #e74c3c; 
+            color: white; 
+            border: none; 
+            border-radius: 50%; 
+            cursor: pointer; 
+            width: 20px; 
+            height: 20px; 
+            font-size: 10px; 
+            font-weight: bold; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+/* ==========================================================================
+   10. MEDIA QUERIES (Για τα κινητά)
+   ========================================================================== */
+@media (max-width: 900px) {
+    .main-header { 
+        height: auto; 
+        min-height: 500px; 
+    }
+    
+    .navbar { 
+        flex-direction: column; 
+        gap: 15px; 
+        padding: 15px 10px; 
+        background: rgba(0, 64, 128, 0.9); 
+    }
+    
+    .logo-area, 
+    .auth-section, 
+    .nav-links { 
+        flex: auto; 
+        width: 100%; 
+        justify-content: center; 
+    }
+    
+    .nav-links { 
+        flex-direction: column; 
+        text-align: center; 
+        margin-top: 10px; 
+        gap: 10px; 
+    }
+    
+    .auth-section { 
+        flex-direction: column; 
+        gap: 10px; 
+    }
+    
+    .nav-search input { 
+        width: 200px; 
+    }
+}
+
+@media (max-width: 850px) {
+    .main-layout { 
+        flex-direction: column; 
+        padding: 0 20px; 
+    }
+    
+    .filters-section { 
+        width: 100%; 
+        min-width: 100%; 
+    }
+}
+
+@media (max-width: 768px) {
+    .header-container { 
+        flex-direction: column-reverse; 
+    }
+    
+    .header-image { 
+        width: 100%; 
+        max-width: 300px; 
+        margin: 0 auto 20px; 
+    }
+    
+    .favlist-main-wrapper { 
+        flex-direction: column; 
+    }
+    
+    .favlist-sidebar { 
+        width: 100%; 
+        height: auto; 
+    }
+}

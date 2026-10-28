@@ -1,0 +1,75 @@
+name: Tests
+
+on:
+  push:
+    branches:
+      - main
+      - master
+      - '*.x'
+  pull_request:
+    branches:
+      - main
+      - master
+      - '*.x'
+  schedule:
+    - cron: '0 0 * * *'
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: true
+      matrix:
+        php: [8.2, 8.3, 8.4]
+
+    name: PHP ${{ matrix.php }}
+
+    steps:
+     - name: Checkout code
+       uses: actions/checkout@v6
+
+     - name: Setup PHP
+       uses: shivammathur/setup-php@v2
+       with:
+         php-version: ${{ matrix.php }}
+         extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite
+         coverage: none
+
+     - name: Install Composer dependencies
+       run: composer install --prefer-dist --no-interaction --no-progress
+
+     - name: Copy environment file
+       run: cp .env.example .env
+
+     - name: Generate app key
+       run: php artisan key:generate
+
+     - name: Execute tests
+       run: php artisan test
+
+    # steps:
+    #   - uses: actions/checkout@v3
+
+    #   - name: Install PHP Dependencies
+    #     run: composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+
+    #   # ΠΡΟΣΘΕΣΕ ΑΥΤΑ ΤΑ ΒΗΜΑΤΑ ΕΔΩ:
+    #   - name: Install Node.js
+    #     uses: actions/setup-node@v3
+    #     with:
+    #       node-version: '18'
+
+    #   - name: Install NPM Dependencies & Build Assets
+    #     run: |
+    #       npm install
+    #       npm run build
+
+    #   # ΜΕΤΑ ΤΡΕΧΕΙΣ ΤΑ TESTS
+    #   - name: Execute tests
+    #     run: php artisan test
+
+        
